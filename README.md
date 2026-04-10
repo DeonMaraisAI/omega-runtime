@@ -1,6 +1,6 @@
-This file verifies itself.
+This proves a file has not been changed.
 
-If it changes, it fails.
+If anything is modified, verification fails instantly.
 
 ---
 
