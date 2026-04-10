@@ -1,5 +1,7 @@
 # # Omega Runtime
 
+**If this file changes, it fails verification.**
+
 This proves a file has not been changed.
 
 If anything is modified, verification fails instantly.
