@@ -20,8 +20,6 @@ python verify_rebuild.py
 
 Try to change any file and run it again — it will fail.
 
-How to test:
-
 (Tested with Python 3)
 
 Download the zip  
