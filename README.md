@@ -27,13 +27,4 @@ Try to change any file and run it again — it will fail.
 
 ---
 
-No server. No API. No trust required. 
-python verify_rebuild.py  
-
-Try to change any file and run it again — it will fail.
-
-(Tested with Python 3)
-
----
-
 No server. No API. No trust required.
