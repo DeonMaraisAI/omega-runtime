@@ -11,3 +11,9 @@ How to test:
 3. Run:
 
 python verify_rebuild.py
+
+
+
+This proves a file has not been changed.
+
+If anything is modified, verification fails instantly.
