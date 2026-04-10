@@ -15,16 +15,8 @@ How to test:
 Download the zip  
 Extract it  
 Run:  
-python verify_rebuild.py
-
+python verify_rebuild.py  
 
 Try to change any file and run it again — it will fail.
 
 (Tested with Python 3)
-
-Download the zip  
-Extract it  
-Run:  
-python verify_rebuild.py  
-
-Try to change any file and run it again — it will fail.
