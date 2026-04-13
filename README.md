@@ -1,27 +1,36 @@
-# # Omega Runtime
+# Omega Runtime
 
-**If this file changes, it fails verification.**
+**If the bundle changes, verification fails.**
 
-This proves a file has not been changed.
+This repository ships a reproducible bundle.
 
-If anything is modified, verification fails instantly.
+The verification contract lives inside `omega_reproducible_bundle.zip`.
+The repo README explains how to run it; the verifier checks the extracted bundle files.
 
----
+## Why pre-validation exists
 
-This file verifies itself.
+Internal consistency is required, but never sufficient.
 
-If it changes, it fails.
+See [PRE_VALIDATION.md](PRE_VALIDATION.md) for upstream false-finality protection.
 
----
+## How to test
 
-How to test:
+1. Download the zip
+2. Extract it
+3. Change into the extracted folder
+4. Run:
 
-Download the zip  
-Extract it  
-Run:  
-python verify_rebuild.py  
+```bash
+python verify_rebuild.py
+```
 
-Try to change any file and run it again — it will fail.
+Expected result:
+
+```text
+REPRODUCIBLE VALID
+```
+
+Try to change any file in the extracted bundle and run it again — it will fail.
 
 (Tested with Python 3)
 
