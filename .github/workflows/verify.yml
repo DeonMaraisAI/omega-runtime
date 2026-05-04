@@ -1,0 +1,30 @@
+name: Verify Omega Runtime
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Verify reproducible bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f omega_reproducible_bundle.zip
+          rm -rf /tmp/omega-runtime-verify
+          mkdir -p /tmp/omega-runtime-verify
+          unzip -q omega_reproducible_bundle.zip -d /tmp/omega-runtime-verify
+          cd /tmp/omega-runtime-verify
+          test -f verify_rebuild.py
+          python verify_rebuild.py
