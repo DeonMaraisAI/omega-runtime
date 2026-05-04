@@ -1,30 +1,69 @@
-# # Omega Runtime
+# Omega Runtime
 
-**If this file changes, it fails verification.**
+Omega Runtime is a **local reproducibility and tamper-detection demo**.
 
-This proves a file has not been changed.
+It is intentionally small.
 
-If anything is modified, verification fails instantly.
+It proves one public idea:
 
----
+```text
+This bundle verifies whether its files still match the recorded hashes.
+```
 
-This file verifies itself.
+If a protected file is modified, the local verifier should fail.
 
-If it changes, it fails.
+## What this proves
 
----
+```text
+LOCAL_REPRODUCIBILITY: TRUE
+TAMPER_DETECTION: TRUE
+LOCAL_REBUILD_CHECK: TRUE
+```
 
-How to test:
+## What this does not prove
 
-Download the zip  
-Extract it  
-Run:  
-python verify_rebuild.py  
+```text
+BELL2_WITNESS: FALSE
+ACCEPT_SHARED: FALSE
+QUORUM_AUTHORITY: FALSE
+PROPAGATION: BLOCKED
+NETWORK_TRUTH: FALSE
+```
 
-Try to change any file and run it again — it will fail.
+This repository is not a shared-authority system. It is not a Bell₂ witness. It does not enable network propagation.
 
-(Tested with Python 3)
+## How to test locally
 
----
+1. Download `omega_reproducible_bundle.zip`.
+2. Extract the ZIP.
+3. Run:
 
-No server. No API. No trust required.
+```bash
+python verify_rebuild.py
+```
+
+4. Modify any protected file.
+5. Run the verifier again.
+
+Expected result:
+
+```text
+unchanged files -> verification passes
+modified files  -> verification fails
+```
+
+## Current boundary
+
+```text
+STATUS: LOCAL_REPRODUCIBILITY_DEMO
+AUTHORITY: LOCAL_ONLY
+ACCEPT_SHARED: FALSE
+PROPAGATION: BLOCKED
+NETWORK_UPDATE: BLOCKED
+```
+
+## No server required
+
+No server. No API. No trust in a website.
+
+The verifier is meant to be run locally against the bundle.
